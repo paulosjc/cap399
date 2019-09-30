@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16
+#SBATCH -p cpu_dev #Fila (partition) a ser utilizada
+#SBATCH -J slurm_Paulo #Nome job
+#SBATCH --time=00:05:00 #Altera o tempo limite para 5 minutos
+#SBATCH --exclusive #Utilização exclusiva do nó durante a execução do job
+module load intel_psxe/2019
+
+#Exibe os nós alocados para o Job
+echo $SLURM_JOB_NODELIST
+nodeset -e $SLURM_JOB_NODELIST
+cd $SLURM_SUBMIT_DIR
+#Configura o executavel
+EXEC=/scratch/padinpe/paulo.rodrigues/a.out
+#exibe informações sobre o executável
+/usr/bin/ldd $EXEC
+srun -n $SLURM_NTASKS $EXEC
