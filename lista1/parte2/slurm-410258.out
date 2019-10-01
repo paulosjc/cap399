@@ -1,0 +1,48 @@
+sdumont1081
+sdumont1081
+	linux-vdso.so.1 =>  (0x00007ffc5898e000)
+	libmpifort.so.12 => /opt/intel/parallel_studio_xe_2019/compilers_and_libraries_2019.3.199/linux/mpi/intel64/lib/libmpifort.so.12 (0x00002ac3a1bba000)
+	libmpi.so.12 => /opt/intel/parallel_studio_xe_2019/compilers_and_libraries_2019.3.199/linux/mpi/intel64/lib/release/libmpi.so.12 (0x00002ac3a1f78000)
+	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00002ac3a3106000)
+	librt.so.1 => /usr/lib64/librt.so.1 (0x00002ac3a330a000)
+	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00002ac3a3512000)
+	libm.so.6 => /usr/lib64/libm.so.6 (0x00002ac3a372e000)
+	libiomp5.so => /opt/intel/parallel_studio_xe_2019/compilers_and_libraries_2019.3.199/linux/compiler/lib/intel64_lin/libiomp5.so (0x00002ac3a3a30000)
+	libgcc_s.so.1 => /usr/lib64/libgcc_s.so.1 (0x00002ac3a3e25000)
+	libc.so.6 => /usr/lib64/libc.so.6 (0x00002ac3a403b000)
+	libfabric.so.1 => /opt/intel/parallel_studio_xe_2019/compilers_and_libraries_2019.3.199/linux/mpi/intel64/libfabric/lib/libfabric.so.1 (0x00002ac3a4408000)
+	/lib64/ld-linux-x86-64.so.2 (0x00002ac3a1996000)
+24
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Array size = 10000000 (elements), Offset = 0 (elements)
+Memory per array = 76.3 MiB (= 0.1 GiB).
+Total memory required = 228.9 MiB (= 0.2 GiB).
+Each kernel will be executed 10 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+-------------------------------------------------------------
+Number of Threads requested = 24
+Number of Threads counted = 24
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 1409 microseconds.
+   (= 1409 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:           70894.6     0.002474     0.002257     0.002827
+Scale:          59079.9     0.002927     0.002708     0.003610
+Add:            62419.1     0.004026     0.003845     0.004641
+Triad:          66890.4     0.003761     0.003588     0.004050
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------

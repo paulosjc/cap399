@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH --nodes=1 # utilizar um único nó!
+#SBATCH --ntasks-per-node=1 # utilizar um único processo por nó!
+#SBATCH --ntasks=1 # utilizar um único processo MPI (embora sem MPI)
+#SBATCH --cpus-per-task=16 # definir número de threads (até 24)
+#SBATCH -p cpu_dev # Fila (partition) "econômica" (até 24 cores para OpenMP)
+#SBATCH -J meu_job # Nome job
+#SBATCH --time=00:02:00 # Altera o tempo limite para 2 minutos
+#SBATCH --exclusive # Utilização exclusiva dos nós durante a execução do job
+# Exibe o nó alocado para o Job:
+echo $SLURM_JOB_NODELIST
+nodeset -e $SLURM_JOB_NODELIST
+cd $SLURM_SUBMIT_DIR
+# Configura os compiladores para a suite de compiladores da Intel e MPI compilado com Intel (caso não tenha carregado esse módulo antes e tenha compilado numa sessão anterior):
+module load intel_psxe/2019
+# Configura o executavel
+EXEC=/scratch/padinpe/paulo.rodrigues/a.out
+# Exibe informações sobre o executável
+/usr/bin/ldd $EXEC
+# Configura o número de threads conforme o parâmetro acima do SLURM
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+# Imprime o número de threads
+echo $SLURM_CPUS_PER_TASK
+# Executa com 1 processo e define número de threads com a opção "-c":
+srun -N 1 -c $SLURM_CPUS_PER_TASK $EXEC
